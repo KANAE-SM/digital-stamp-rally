@@ -1,26 +1,15 @@
     * {
       box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     body {
       margin: 0;
-      background: #f5f0e6;
-      color: #5c4b3d;
+      background: #ffffff;
+      color: #333333;
       font-family: "Noto Sans JP", sans-serif;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 20px;
-      background: #fffaf2;
-      border-bottom: 1px solid #e8d8c3;
-    }
-
-    header strong {
-      font-size: 13px;
-      letter-spacing: 1px;
+      overflow: hidden;
     }
 
     main {
@@ -37,7 +26,7 @@
     }
 
     .eyebrow {
-      color: #a88c70;
+      color: #1769aa;
       font-size: 11px;
       letter-spacing: 2px;
     }
@@ -48,14 +37,14 @@
     }
 
     .description {
-      color: #85735f;
+      color: #666666;
       font-size: 13px;
       line-height: 1.8;
     }
 
     .progress-card {
-      background: #fffaf2;
-      border: 1px solid #e8d8c3;
+      background: #ffffff;
+      border: 1px solid #e1eaf1;
       border-radius: 16px;
       padding: 20px;
       margin-bottom: 18px;
@@ -72,7 +61,7 @@
     .progress-track {
       height: 8px;
       margin: 14px 0 20px;
-      background: #eee5d9;
+      background: #eaf4fa;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -80,7 +69,7 @@
     .progress-bar {
       width: 0;
       height: 100%;
-      background: #a88c70;
+      background: #ffd84d;
       transition: width 0.3s ease;
     }
 
@@ -94,9 +83,9 @@
       min-width: 0;
       padding: 16px 8px;
       text-align: center;
-      border: 1px solid #e5dacc;
+      border: 1px solid #e1eaf1;
       border-radius: 12px;
-      background: #fffdf9;
+      background: #ffffff;
     }
 
     .stamp-circle {
@@ -106,9 +95,9 @@
       width: 66px;
       height: 66px;
       margin: 0 auto 10px;
-      border: 2px dashed #d9cbbb;
+      border: 2px dashed #b8d4e8;
       border-radius: 50%;
-      color: #c5b7a6;
+      color: #9bb8cc;
       font-size: 27px;
     }
 
@@ -120,14 +109,14 @@
     }
 
     .stamp-card.collected {
-      background: #f2e7d7;
-      border-color: #c4ad91;
+      background: #fff6cc;
+      border-color: #ffd84d;
     }
 
     .stamp-card.collected .stamp-circle {
-      border: 2px solid #a88c70;
-      color: #795d42;
-      background: #e8d8c3;
+      border: 2px solid #1769aa;
+      color: #1769aa;
+      background: #eaf4fa;
     }
 
     .stamp-name {
@@ -138,12 +127,12 @@
 
     .stamp-status {
       margin-top: 5px;
-      color: #a59a8d;
+      color: #999999;
       font-size: 11px;
     }
 
     .collected .stamp-status {
-      color: #806341;
+      color: #1769aa;
     }
 
     .scan-button, .reset-button {
@@ -159,8 +148,8 @@
 
     .scan-button {
       margin-top: 18px;
-      color: #fffaf2;
-      background: #a88c70;
+      color: #ffffff;
+      background: #1769aa;
     }
 
     .reset-button {
@@ -175,7 +164,8 @@
       padding: 13px;
       margin-bottom: 16px;
       border-radius: 10px;
-      background: #e8d8c3;
+      background: #fff6cc;
+      color: #333333;
       font-size: 13px;
       text-align: center;
       line-height: 1.7;
@@ -200,7 +190,7 @@
       width: 100%;
       max-width: 500px;
       padding: 32px 24px;
-      background: #f5f0e6;
+      background: #ffffff;
       border-radius: 16px;
       text-align: center;
     }
@@ -212,6 +202,7 @@
 
     .complete-content h2 {
       margin: 0 0 16px;
+      color: #1769aa;
       font-size: 28px;
       letter-spacing: 2px;
     }
@@ -226,8 +217,8 @@
       padding: 10px 28px;
       border: none;
       border-radius: 999px;
-      background: #5c4b3d;
-      color: #f5f0e6;
+      background: #1769aa;
+      color: #ffffff;
       font-size: 15px;
       cursor: pointer;
     }
@@ -243,8 +234,8 @@
       padding: 13px;
       border: none;
       border-radius: 999px;
-      background: #a88c70;
-      color: #fffaf2;
+      background: #eaf4fa;
+      color: #1769aa;
       font-size: 14px;
       font-weight: bold;
       cursor: pointer;
@@ -307,7 +298,7 @@
     }
 
     .exchange-label {
-      color: #a88c70;
+      color: #1769aa;
       font-size: 10px;
       letter-spacing: 2px;
       margin-bottom: 8px;
@@ -316,9 +307,9 @@
     .exchange-ticket {
       margin: 20px 0;
       padding: 20px 15px;
-      border: 2px dashed #c4ad91;
+      border: 2px dashed #1769aa;
       border-radius: 12px;
-      background: #fffaf2;
+      background: #fff6cc;
     }
 
     .exchange-ticket strong {
@@ -340,8 +331,8 @@
     }
 
     .scan-button:disabled {
-      background: #d8cfc3;
-      color: #9c9287;
+      background: #dceaf3;
+      color: #7d9caf;
       cursor: not-allowed;
     }
 
