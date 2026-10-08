@@ -68,7 +68,8 @@
         count === departments.length &&
         exchange.hidden &&
         closeExchangeComplete.hidden &&
-        localStorage.getItem(EXCHANGE_KEY) !=="completed"
+        localStorage.getItem(EXCHANGE_KEY) !=="completed" &&
+        document.getElementById("stamp-get").hidden
       ) {
         complete.hidden = false;
       } else {
@@ -97,9 +98,11 @@
             JSON.stringify(stamps)
           );
 
-          showNotice(
-            `${department.name}${department.sub}のスタンプを取得しました！`
-          );
+          showStampGet(
+            department,
+          stamps.length === departments.length
+        );
+
         } else {
           showNotice("このスタンプは取得済みです！");
         }
@@ -118,9 +121,47 @@
     }
 
     function showNotice(message) {
-      const notice = document.getElementById("notice");
-      notice.textContent = message;
-      notice.style.display = "block";
+      const popup = document.getElementById("stamp-notice");
+      const title = document.getElementById("stamp-notice-title");
+      const text = document.getElementById("stamp-notice-message");
+
+      title.textContent = "取得済み";
+      text.textContent = message;
+
+      popup.hidden = false;
+
+      popup.classList.remove("show");
+      void popup.offsetWidth;
+      popup.classList.add("show");
+
+      setTimeout(() => {
+        popup.classList.remove("show");
+        popup.hidden = true;
+      }, 5000);
+    }
+
+    function showStampGet(department, isComplete = false) {
+      const popup = document.getElementById("stamp-get");
+      const name = document.getElementById("stamp-get-name");
+
+      name.innerHTML =
+        `<span class="department-name ${department.id}">${department.name}${department.sub}</span>の<br>
+        スタンプを取得しました！`;
+
+      popup.hidden = false;
+
+      popup.classList.remove("show");
+      void popup.offsetWidth;
+      popup.classList.add("show");
+
+      setTimeout(() => {
+        popup.classList.remove("show");
+        popup.hidden = true;
+
+        if (isComplete) {
+          document.getElementById("complete").hidden = false;
+        }
+      }, 3000); 
     }
 
     let html5QrCode;
@@ -166,9 +207,12 @@
                 STORAGE_KEY,
                 JSON.stringify(stamps)
               );
-              showNotice(
-                `${department.name}${department.sub}のスタンプを取得しました！`
+
+              showStampGet(
+                department,
+                stamps.length === departments.length
               );
+
             } else {
               showNotice("このスタンプは取得済みです！");
             }
@@ -196,21 +240,32 @@
     }
 
 
-    // 動作確認用
-    function resetStamps() {
-      if (!confirm("取得したスタンプをすべてリセットしますか？")) {
-        return;
-      }
+// 動作確認用 
+function resetStamps() { 
+  if (!confirm("取得したスタンプをすべてリセットしますか？")) { 
+    return; 
+  } 
 
-      stamps = [];
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(EXCHANGE_KEY);
+  stamps = []; 
+  localStorage.removeItem(STORAGE_KEY); 
+  localStorage.removeItem(EXCHANGE_KEY); 
 
-      document.getElementById("notice").style.display = "none";
+  renderStamps(); 
+  updateFinishedState(); 
+} 
 
-      renderStamps();
-      updateFinishedState();
-    }
+function testCollectAll() { 
+  stamps = departments.map(department => department.id); 
+
+  localStorage.setItem( 
+    STORAGE_KEY, 
+    JSON.stringify(stamps) 
+  ); 
+
+  renderStamps(); 
+} 
+// 動作確認用
+
 
 function updateFinishedState() {
   const finished =
@@ -237,14 +292,20 @@ function showExchange() {
 }
 
 function completeExchange() {
-  localStorage.setItem(EXCHANGE_KEY, "completed");
+  const stamp = document.querySelector(".complete-stamp");
 
+  stamp.classList.remove("stamp-pop");
+
+  void stamp.offsetWidth;
+
+  stamp.classList.add("stamp-pop");
+
+  setTimeout(() => {
+    localStorage.setItem(EXCHANGE_KEY,"completed");
+  
   document.getElementById("exchange").hidden = true;
   document.getElementById("exchange-complete").hidden = false;
-}
-
-function closeExchange() {
-  document.getElementById("exchange").hidden = true;
+  }, 3000);
 }
 
 function closeComplete() {
@@ -253,8 +314,6 @@ function closeComplete() {
 
 function closeExchangeComplete() {
   document.getElementById("exchange-complete").hidden = true;
-
-  document.getElementById("notice").style.display = "none";
 
   updateFinishedState();
 }

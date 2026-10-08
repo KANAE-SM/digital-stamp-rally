@@ -6,10 +6,11 @@
 
     body {
       margin: 0;
-      background: #ffffff;
+      background: #f4f9fc;
       color: #333333;
-      font-family: "Noto Sans JP", sans-serif;
-      overflow: hidden;
+      font-family: "Zen Maru Gothic", sans-serif;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     main {
@@ -17,12 +18,46 @@
       max-width: 390px;
       min-height: 100vh;
       margin: 0 auto;
-      padding: 28px 0 40px;
+      padding: 28px 16px 40px;
+    }
+
+    .event-info {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+
+    .event-info span {
+      padding: 4px 10px;
+      border: 1px solid #1769aa;
+      border-radius: 999px;
+      color: #1769aa;
+      background: #ffffff;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1px;
     }
 
     .hero {
       text-align: center;
       margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .hero h1::after {
+      content: "";
+      position: absolute;
+      left: 20%;
+      right: 20%;
+      bottom: 0;
+      height: 4px;
+      background: #f2d94e;
+      border-radius: 10px;
     }
 
     .eyebrow {
@@ -44,18 +79,23 @@
 
     .progress-card {
       background: #ffffff;
-      border: 1px solid #e1eaf1;
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 18px;
+      padding: 24px 18px;
+      border: 2px solid #1769aa;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(23, 105, 170, 0.10);
     }
 
     .progress-heading {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 14px;
+      color: #1769aa;
+      font-size: 16px;
       font-weight: bold;
+    }
+
+    .progress-heading span:last-child {
+      color: #333333;
     }
 
     .progress-track {
@@ -69,36 +109,44 @@
     .progress-bar {
       width: 0;
       height: 100%;
-      background: #ffd84d;
+      background: #1769aa;
       transition: width 0.3s ease;
     }
 
     .stamp-grid {
+      background: transparent;
+      border: none;
+      border-top: 1px dashed #d8c96f;
+      border-bottom: 1px dashed #d8c96f;
+      border-radius: 0;
+      padding: 18px 0;
+      margin: 18px 0;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 18px 12px;
     }
 
     .stamp-card {
       min-width: 0;
-      padding: 16px 8px;
-      text-align: center;
-      border: 1px solid #e1eaf1;
-      border-radius: 12px;
       background: #ffffff;
+      padding: 12px 8px;
+      border: none;
+      border-radius: 12px;
+      text-align: center;
     }
 
     .stamp-circle {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 66px;
-      height: 66px;
+      width: 72px;
+      height: 72px;
       margin: 0 auto 10px;
-      border: 2px dashed #b8d4e8;
+      border: 2px dashed #d8c96f;
       border-radius: 50%;
-      color: #9bb8cc;
+      color: #c4b45a;
       font-size: 27px;
+      background: #fffdf2;
     }
 
     .stamp-circle img{
@@ -108,16 +156,35 @@
       border-radius: 50%;
     }
 
-    .stamp-card.collected {
-      background: #fff6cc;
-      border-color: #ffd84d;
-    }
+.stamp-card.collected {
+  background: #ffffff;
+  border-color: #e1eaf1;
+}
 
-    .stamp-card.collected .stamp-circle {
-      border: 2px solid #1769aa;
-      color: #1769aa;
-      background: #eaf4fa;
-    }
+.stamp-card.collected .stamp-circle {
+  border: 2px solid #1769aa;
+  background: #eaf4fa;
+}
+
+.stamp-card.collected:nth-child(1) .stamp-circle {
+  border-color: #a8c65f;
+  background: #f2f6df;
+}
+
+.stamp-card.collected:nth-child(2) .stamp-circle {
+  border-color: #e6962f;
+  background: #fff3df;
+}
+
+.stamp-card.collected:nth-child(3) .stamp-circle {
+  border-color: #3097d1;
+  background: #eaf5fb;
+}
+
+.stamp-card.collected:nth-child(4) .stamp-circle {
+  border-color: #be518d;
+  background: #f9edf4;
+}
 
     .stamp-name {
       font-size: 12px;
@@ -130,6 +197,61 @@
       color: #999999;
       font-size: 11px;
     }
+
+.stamp-notice {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2000;
+  width: 280px;
+  padding: 28px 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+}
+
+.stamp-notice.show {
+  animation: stampNoticePop 0.45s ease-out forwards;
+}
+
+.stamp-notice-icon {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.stamp-notice strong {
+  display: block;
+  color: #1769aa;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.stamp-notice p {
+  margin: 10px 0 0;
+  color: #333333;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@keyframes stampNoticePop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
 
     .collected .stamp-status {
       color: #1769aa;
@@ -147,9 +269,14 @@
     }
 
     .scan-button {
-      margin-top: 18px;
+      margin-top: 20px;
+      padding: 16px;
       color: #ffffff;
       background: #1769aa;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(23, 105, 170, 0.18);
     }
 
     .reset-button {
@@ -157,18 +284,6 @@
       color: #85735f;
       background: transparent;
       font-size: 12px;
-    }
-
-    .notice {
-      display: none;
-      padding: 13px;
-      margin-bottom: 16px;
-      border-radius: 10px;
-      background: #fff6cc;
-      color: #333333;
-      font-size: 13px;
-      text-align: center;
-      line-height: 1.7;
     }
 
     .complete {
@@ -293,10 +408,6 @@
       margin: 20px auto;
     }
 
-    .exchange-content {
-      padding-top: 28px;
-    }
-
     .exchange-label {
       color: #1769aa;
       font-size: 10px;
@@ -304,31 +415,96 @@
       margin-bottom: 8px;
     }
 
-    .exchange-ticket {
-      margin: 20px 0;
-      padding: 20px 15px;
-      border: 2px dashed #1769aa;
-      border-radius: 12px;
-      background: #fff6cc;
-    }
+.exchange-ticket {
+  position: relative;
+  min-height: 150px;
+  margin: 20px 0;
+  padding: 28px 18px;
+  border: 2px dashed #1769aa;
+  border-radius: 12px;
+  background: #fff6cc;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .exchange-ticket strong {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 20px;
-      letter-spacing: 2px;
-    }
+.exchange-info {
+  width: 100%;
+}
 
-    .exchange-ticket p {
-      font-size: 13px;
-      line-height: 1.8;
-    }
+.exchange-info p {
+  margin: 0;
+  color: #333333;
+  font-size: 13px;
+  line-height: 1.7;
+}
 
-    .exchange-note {
-      margin-top: 16px !important;
-      color: #85735f;
-      font-size: 12px;
-    }
+.reward-text strong {
+  display: inline-block;
+  margin-top: 3px;
+  color: #1769aa;
+  font-size: 16px;
+}
+
+.gacha-text { 
+  margin-top: 18px !important; 
+  color: #5c4b3d !important; 
+} 
+ 
+.staff-text { 
+  margin-top: 18px !important; 
+  color: #5c4b3d !important; 
+}
+
+.staff-text strong {
+  display: inline-block;
+  margin-top: 3px;
+  color: #1769aa;
+}
+
+.complete-stamp {
+  display: block;
+  width: fit-content;
+  margin: 0;
+  padding: 8px 16px;
+  border: 3px solid #d62828;
+  border-radius: 6px;
+  color: #d62828;
+  font-size: 24px;
+  letter-spacing: 2px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%) rotate(-8deg) scale(0);
+  opacity: 0;
+}
+
+.complete-stamp.stamp-pop {
+  animation: stampPop 0.5s ease-out forwards;
+}
+
+@keyframes stampPop {
+  0% {
+    transform: translate(-50%, -50%) rotate(-8deg) scale(2);
+    opacity: 0;
+  }
+
+  55% {
+    transform: translate(-50%, -50%) rotate(-8deg) scale(0.9);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translate(-50%, -50%) rotate(-8deg) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+    opacity: 1;
+  }
+}
 
     .scan-button:disabled {
       background: #dceaf3;
@@ -343,3 +519,95 @@
       line-height: 1.8;
       text-align: center;
     }
+
+/* =====開発用==== */
+.test-button {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #fff6cc;
+  color: #85735f;
+  font-size: 12px;
+  cursor: pointer;
+}
+/* =====開発用==== */
+
+.stamp-get {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2000;
+  width: 280px;
+  padding: 28px 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+}
+
+.stamp-get.show {
+  animation: stampGetPop 0.45s ease-in-out forwards;
+}
+
+.stamp-get-icon {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.stamp-get strong {
+  display: block;
+  color: #1769aa;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.stamp-get p {
+  margin: 8px 0 0;
+  color: #333333;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.department-name {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.department-name.environment {
+  color: #a8c65f;
+}
+
+.department-name.craft {
+  color: #e6962f;
+}
+
+.department-name.visual {
+  color: #3097d1;
+}
+
+.department-name.media {
+  color: #be518d;
+}
+
+@keyframes stampGetPop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}

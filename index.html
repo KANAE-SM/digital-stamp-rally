@@ -6,21 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>オープンキャンパス スタンプラリー</title>
   <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
   <main>
+    <div class="event-info">
+      <span>2026.12.20</span>
+    </div>
+
     <section class="hero">
-      <div class="eyebrow">CAMPUS STAMP BOOK</div>
+      <div class="eyebrow">KOBE DESIGN UNIVERSITY</div>
       <h1>オープンキャンパス<br>スタンプ帳</h1>
       <p class="description">
-        大学の魅力を発見しながら、<br>
+        大学をめぐって、<br>
         スタンプを集めよう！
       </p>
+
     </section>
 
-    <div id="notice" class="notice" role="status"></div>
+    <div id="stamp-notice" class="stamp-notice" hidden>
+      <div class="stamp-notice-icon">⚠️</div>
+      <strong id="stamp-notice-title">取得済み</strong>
+      <p id="stamp-notice-message"></p>
+    </div>
+
+    <div id="stamp-get" class="stamp-get" hidden>
+      <div class="stamp-get-icon">🌟</div>
+      <strong>GET!</strong>
+      <p id="stamp-get-name"></p>
+    </div>
 
     <section class="progress-card">
       <div class="progress-heading">
@@ -40,21 +59,27 @@
 
       <p id="finished-message" class="finished-message" hidden>
         オリジナルグッズをゲットしました！<br><br>
-        デジタルスタンプラリーへの<br>
-        ご参加ありがとうございました！<br>
+        スタンプラリーへのご参加、<br>
+        ありがとうございました！<br>
         オープンキャンパスを引き続きお楽しみください！
       </p>
 
+<!-- =====開発用==== -->
       <button class="reset-button" onclick="resetStamps()">
         スタンプをリセット（動作確認用）
       </button>
+
+      <button class="test-button" onclick="testCollectAll()">
+        スタンプを４つ取得(動作確認用)
+      </button>
+<!-- ====開発用==== -->
     </section>
 
     <div id="scanner-modal" class="scanner-modal" hidden>
         <div class="scanner-content">
             <button class="close-button" onclick="stopScanner()">×</button>
             <h2>QRコードを読み取る</h2>
-            <p>カメラをQRコードに向けてください。</p>
+            <p>QRコードを枠内に合わせてください。</p>
             <div id="reader"></div>
             <p id="scanner-message"></p>
         </div>
@@ -66,58 +91,64 @@
 
       <h2>COMPLETE!</h2>
 
-      <p>すべてのスタンプを集めました！<br>
+      <p>すべてのスタンプが集まりました！<br>
         おめでとうございます！
       </p>
      
-  　　<button class="complete-button" onclick="showExchange()">
-        引き換え画面を表示
+    <button class="complete-button" onclick="showExchange()">
+        景品を受け取る
       </button>
 
-      <button class="complete-close" onclick="closeComplete()">
-        とじる
-      </button>
       </div>
     </div>
 
     <div id="exchange" class="complete"  hidden>
       <div class="complete-content">
-        <div class="complete-icon">🎁</div>
+        <div class="complete-icon">🎫</div>
 
         <div class="exchange-label">
           STAMP RALLY
         </div>
 
-        <h2>引き換え画面</h2>
+        <h2>景品の受け取り</h2>
 
         <div class="exchange-ticket">
-          <strong>COMPLETE</strong>
+          <strong class="complete-stamp">COMPLETE</strong>
 
-        <p>
-          この画面をインフォメーションで<br>
-          スタッフに見せてください。
+        <div class="exchange-info">
+          <p class="reward-text">
+              スタンプをすべて集めた方に<br>
+              <strong>オリジナルグッズをプレゼント！</strong>
+          </p>
+
+        <p class="gacha-text">
+          🎁 ガチャガチャで<br>
+          どのグッズが出るかはお楽しみ！
         </p>
+
+        <p class="staff-text">
+          インフォメーションで<br>
+          <strong>この画面をスタッフにお見せください。</strong>
+        </p>
+        </div>
         </div>
 
         <button type="button" class="complete-button" onclick="completeExchange()">
-          引き替えました！
+          スタッフに見せました！
         </button>
 
-        <button type="button" class="complete-close" onclick="closeExchange()">
-          とじる
-        </button>
       </div>
     </div>
 
         <div id="exchange-complete" class="complete" hidden>
           <div class="complete-content">
-            <div class="complete-icon">🎉</div>
+            <div class="complete-icon">✨</div>
 
-            <h2>引き換え完了！</h2>
+            <h2>受け取り完了！</h2>
 
             <p>
               オリジナルグッズを<br>
-              ゲットしました！
+              受け取りました！
             </p>
 
         <button type="button" class="complete-close" onclick="closeExchangeComplete()">
