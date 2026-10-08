@@ -21,6 +21,107 @@
       padding: 28px 16px 40px;
     }
 
+
+.howto-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #f4f9fc;
+}
+
+.howto-content {
+  width: 100%;
+  max-width: 390px;
+  text-align: center;
+}
+
+.howto-eyebrow {
+  margin-bottom: 10px;
+  color: #1769aa;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.howto-content h2 {
+  margin: 0;
+  color: #333333;
+  font-size: 27px;
+  line-height: 1.4;
+}
+
+.howto-description {
+  margin: 12px 0 24px;
+  color: #666666;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.howto-steps {
+  margin: 0 auto;
+  padding: 18px 16px;
+  border-top: 1px dashed #d8c96f;
+  border-bottom: 1px dashed #d8c96f;
+  text-align: left;
+}
+
+.howto-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.howto-step + .howto-step {
+  margin-top: 18px;
+}
+
+.howto-step > span {
+  flex: 0 0 auto;
+  color: #1769aa;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.howto-step strong {
+  display: block;
+  color: #333333;
+  font-size: 14px;
+}
+
+.howto-step p {
+  margin: 3px 0 0;
+  color: #666666;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.howto-start {
+  width: 100%;
+  margin-top: 24px;
+  padding: 15px;
+  border: none;
+  border-radius: 999px;
+  background: #1769aa;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(23, 105, 170, 0.18);
+  transition: transform 0.15s ease;
+}
+
+.howto-start:active {
+  transform: scale(0.97);
+}
+
+.howto-screen[hidden] {
+  display: none;
+}
+
     .event-info {
       display: flex;
       justify-content: flex-end;
@@ -277,7 +378,33 @@
       font-size: 14px;
       font-weight: bold;
       box-shadow: 0 4px 8px rgba(23, 105, 170, 0.18);
+      transition: transform 0.15s ease;
     }
+
+    .scan-button:active {
+      transform: scale(0.97);
+    }
+
+.camera-help {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #fff6cc;
+  color: #5c4b3d;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.camera-help strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #1769aa;
+  font-size: 14px;
+}
+
+.camera-help p {
+  margin: 0;
+}
 
     .reset-button {
       margin-top: 10px;
@@ -308,6 +435,24 @@
       background: #ffffff;
       border-radius: 16px;
       text-align: center;
+      animation: modalPop 0.4s ease-out;
+    }
+
+    @keyframes modalPop {
+      0% {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+
+      70% {
+        transform: scale(1.03);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .complete-icon {
@@ -354,6 +499,11 @@
       font-size: 14px;
       font-weight: bold;
       cursor: pointer;
+      transform: transform 0.15s ease;
+    }
+
+    .complete-button:active {
+      transform: scale(0.97);
     }
 
     footer {

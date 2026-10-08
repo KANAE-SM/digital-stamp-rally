@@ -8,10 +8,17 @@
 
     const STORAGE_KEY = "campusStampRally";
     const EXCHANGE_KEY = "campussStampRallyExchange";
+    const HOWTO_KEY = "campussStampRallyHowto";
 
     let stamps = JSON.parse(
       localStorage.getItem(STORAGE_KEY) || "[]"
     );
+
+    function startStampRally() {
+      localStorage.setItem(HOWTO_KEY, "seen");
+
+      document.getElementById("howto-screen").hidden = true;
+    }
 
     // スタンプ帳を画面に表示
     function renderStamps() {
@@ -172,6 +179,8 @@
       const modal = document.getElementById("scanner-modal");
       const message = document.getElementById("scanner-message");
 
+      document.getElementById("camera-help").hidden = true;
+
       modal.hidden = false;
       message.textContent = "カメラを起動しています…";
 
@@ -225,8 +234,8 @@
         message.textContent = "QRコードを枠内に映してください。";
       } catch (error) {
         console.error("カメラ起動エラー:", error);
-        message.textContent =
-        "カメラが起動できません。:" + error.message;
+        message.textContent = "";
+        document.getElementById("camera-help").hidden = false;
       }
     }
 
@@ -249,6 +258,7 @@ function resetStamps() {
   stamps = []; 
   localStorage.removeItem(STORAGE_KEY); 
   localStorage.removeItem(EXCHANGE_KEY); 
+  localStorage.removeItem(HOWTO_KEY);
 
   renderStamps(); 
   updateFinishedState(); 
@@ -292,7 +302,17 @@ function showExchange() {
 }
 
 function completeExchange() {
+  const button = document.querySelector("#exchange .complete-button");
   const stamp = document.querySelector(".complete-stamp");
+
+  if(localStorage.getItem(EXCHANGE_KEY) === "completed") {
+    return;
+  }
+
+  localStorage.setItem(EXCHANGE_KEY, "completed");
+
+  button.disabled = true;
+  button.textContent = "引き替え処理...";
 
   stamp.classList.remove("stamp-pop");
 
@@ -300,9 +320,7 @@ function completeExchange() {
 
   stamp.classList.add("stamp-pop");
 
-  setTimeout(() => {
-    localStorage.setItem(EXCHANGE_KEY,"completed");
-  
+  setTimeout(() => {  
   document.getElementById("exchange").hidden = true;
   document.getElementById("exchange-complete").hidden = false;
   }, 3000);
@@ -316,6 +334,10 @@ function closeExchangeComplete() {
   document.getElementById("exchange-complete").hidden = true;
 
   updateFinishedState();
+}
+
+if (localStorage.getItem(HOWTO_KEY) === "seen") {
+  document.getElementById("howto-screen").hidden = true;
 }
 
 renderStamps();

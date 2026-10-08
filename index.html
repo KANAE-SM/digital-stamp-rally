@@ -14,6 +14,53 @@
 
 <body>
 
+  <div id="howto-screen" class="howto-screen">
+    <div class="howto-content">
+
+      <div class="howto-eyebrow">DIGITAL STAMP RALLY</div>
+
+      <h1>オープンキャンパス<br>スタンプラリー</h1>
+
+      <p class="howto-description">
+        大学をめぐって、<br>
+        スタンプを集めよう！
+      </p>
+
+      <div class="howto-steps">
+
+        <div class="howto-step">
+          <span>01</span>
+          <div>
+            <strong>学科をめぐる</strong>
+            <p>4つの学科を自由にめぐろう！</p>
+          </div>
+        </div>
+
+        <div class="howto-step">
+          <span>02</span>
+          <div>
+            <strong>QRコードを読み取る</strong>
+            <p>各学科のQRコードを読み取って<br>スタンプをGET！</p>
+          </div>
+        </div>
+
+        <div class="howto-step">
+          <span>03</span>
+          <div>
+            <strong>4つ集める</strong>
+            <p>すべて集めたらインフォメーションへ！</p>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="howto-start" onclick="startStampRally()">
+        START
+      </button>
+
+    </div>
+  </div>
+
   <main>
     <div class="event-info">
       <span>2026.12.20</span>
@@ -82,6 +129,15 @@
             <p>QRコードを枠内に合わせてください。</p>
             <div id="reader"></div>
             <p id="scanner-message"></p>
+
+            <div id="camera-help" class="camera-help" hidden>
+              <strong>カメラを使用できません</strong>
+
+              <p>
+                ブラウザの設定から<br>
+                カメラの使用を許可してください
+              </p>
+            </div>
         </div>
     </div>
 
