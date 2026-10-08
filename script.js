@@ -18,6 +18,20 @@
       localStorage.setItem(HOWTO_KEY, "seen");
 
       document.getElementById("howto-screen").hidden = true;
+
+      const exchangeComplete =
+      localStorage.getItem(EXCHANGE_KEY) === "completed";
+
+      const stampCount = stamps.length;
+
+      if (exchangeCompleted) {
+        document.getElementById("exchange-complete").hidden = false;
+      } else if (stampCount === departments.length) {
+        document.getElementById("exchange").hidden = false;
+      } else {
+        document.getElementById("complete").hidden = true;
+        renderStamps();
+      }
     }
 
     // スタンプ帳を画面に表示
@@ -336,8 +350,12 @@ function closeExchangeComplete() {
   updateFinishedState();
 }
 
+const howtoStartButton = document.getElementById("howto-start-button");
+
 if (localStorage.getItem(HOWTO_KEY) === "seen") {
-  document.getElementById("howto-screen").hidden = true;
+  howtoStartButton.textContent = "つづきから";
+} else {
+  howtoStartButton.textContent = "START"
 }
 
 renderStamps();

@@ -21,7 +21,6 @@
       padding: 28px 16px 40px;
     }
 
-
 .howto-screen {
   position: fixed;
   inset: 0;
@@ -36,7 +35,14 @@
 .howto-content {
   width: 100%;
   max-width: 390px;
+  max-height: 100%;
+  overflow-y: auto;
   text-align: center;
+}
+
+.howto-content h1 {
+  font-size: 28px;
+  line-height: 1.5;
 }
 
 .howto-eyebrow {
@@ -56,8 +62,16 @@
 .howto-description {
   margin: 12px 0 24px;
   color: #666666;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.8;
+}
+
+.howto-english {
+  margin: 8px 0 24px;
+  color: #777777;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 1.6;
 }
 
 .howto-steps {
@@ -81,21 +95,23 @@
 .howto-step > span {
   flex: 0 0 auto;
   color: #1769aa;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 .howto-step strong {
   display: block;
   color: #333333;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .howto-step p {
   margin: 3px 0 0;
   color: #666666;
-  font-size: 11px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
 }
 
 .howto-start {
@@ -148,6 +164,8 @@
       position: relative;
       display: inline-block;
       padding-bottom: 8px;
+      font-size: 28px;
+      line-height: 1.5;
     }
 
     .hero h1::after {
@@ -174,7 +192,7 @@
 
     .description {
       color: #666666;
-      font-size: 13px;
+      font-size: 15px;
       line-height: 1.8;
     }
 
