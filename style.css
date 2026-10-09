@@ -142,6 +142,23 @@
   display: none;
 }
 
+.howto-notice {
+  margin-top: 16px;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.howto-notice p {
+  margin: 4px 0;
+}
+
+.notice-important {
+  color: #d93025;
+  font-weight: bold;
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
@@ -390,7 +407,7 @@
       color: #1769aa;
     }
 
-    .scan-button, .reset-button {
+    .scan-button {
       display: block;
       width: 100%;
       padding: 15px;
@@ -399,18 +416,6 @@
       font-size: 14px;
       font-weight: bold;
       cursor: pointer;
-    }
-
-    .scan-button {
-      margin-top: 20px;
-      padding: 16px;
-      color: #ffffff;
-      background: #1769aa;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(23, 105, 170, 0.18);
-      transition: transform 0.15s ease;
     }
 
     .scan-button:active {
@@ -437,13 +442,6 @@
 .camera-help p {
   margin: 0;
 }
-
-    .reset-button {
-      margin-top: 10px;
-      color: #85735f;
-      background: transparent;
-      font-size: 12px;
-    }
 
     .complete {
       position: fixed;
@@ -701,21 +699,6 @@
       line-height: 1.8;
       text-align: center;
     }
-
-/* =====開発用==== */
-.test-button {
-  display: block;
-  width: 100%;
-  margin-top: 4px;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background: #fff6cc;
-  color: #85735f;
-  font-size: 12px;
-  cursor: pointer;
-}
-/* =====開発用==== */
 
 .stamp-get {
   position: fixed;

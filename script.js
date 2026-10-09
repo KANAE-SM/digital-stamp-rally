@@ -210,6 +210,10 @@
             try {
               const url = new URL(decodedText);
               stampId = url.searchParams.get("stamp");
+
+              message.textContent =
+              "読み取ったURL : " + decodedText +
+              "\n取得したstamp : " + stampId;
             } catch {
               message.textContent = "有効なQRコードではありません。";
               return; 
@@ -220,7 +224,9 @@
             );
 
             if (!department) {
-              message.textContent = "このQRコードはスタンプラリー用ではありません。";
+              message.textContent = "このQRコードはスタンプラリー用ではありません。\n" +
+              "読み取ったURL : " + decodedText + "\n" +
+              "取得したstamp : " + stampId;
               return;
             }
 
@@ -261,34 +267,6 @@
 
       document.getElementById("scanner-modal").hidden = true;
     }
-
-
-// 動作確認用 
-function resetStamps() { 
-  if (!confirm("取得したスタンプをすべてリセットしますか？")) { 
-    return; 
-  } 
-
-  stamps = []; 
-  localStorage.removeItem(STORAGE_KEY); 
-  localStorage.removeItem(EXCHANGE_KEY); 
-  localStorage.removeItem(HOWTO_KEY);
-
-  renderStamps(); 
-  updateFinishedState(); 
-} 
-
-function testCollectAll() { 
-  stamps = departments.map(department => department.id); 
-
-  localStorage.setItem( 
-    STORAGE_KEY, 
-    JSON.stringify(stamps) 
-  ); 
-
-  renderStamps(); 
-} 
-// 動作確認用
 
 
 function updateFinishedState() {
