@@ -1,9 +1,9 @@
     // 学科の情報
     const departments = [
-      { id: "environment", name: "環境・建築", sub: "デザイン学科" },
-      { id: "craft", name: "生産・工芸", sub: "デザイン学科" },
-      { id: "visual", name: "ビジュアル", sub: "デザイン学科" },
-      { id: "media", name: "メディア", sub: "芸術学科" }
+      { id: "environment", name: "環境・建築", sub: "デザイン学科", building: "5号館" },
+      { id: "craft", name: "生産・工芸", sub: "デザイン学科", building: "6号館" },
+      { id: "visual", name: "ビジュアル", sub: "デザイン学科", building: "7号館" },
+      { id: "media", name: "メディア", sub: "芸術学科", building: "8号館" }
     ];
 
     const STORAGE_KEY = "campusStampRally";
@@ -66,11 +66,15 @@
         sub.className = "stamp-name";
         sub.textContent = department.sub;
 
+        const building = document.createElement("div");
+        building.className = "stamp-building";
+        building.textContent = department.building;
+
         const status = document.createElement("div");
         status.className = "stamp-status";
         status.textContent = collected ? "取得済み" : "未取得";
 
-        card.append(circle, name, sub, status);
+        card.append(circle, name, sub, building, status);
         grid.appendChild(card);
       });
 

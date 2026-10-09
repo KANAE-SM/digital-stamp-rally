@@ -197,15 +197,16 @@
       padding-bottom: 8px;
       font-size: 28px;
       line-height: 1.5;
+      color: #2457a7;
     }
 
     .hero h1::after {
-      content: "";
+      content: none;
       position: absolute;
-      left: 20%;
-      right: 20%;
+      left: 7%;
+      right: 7%;
       bottom: 0;
-      height: 4px;
+      height: 2px;
       background: #f2d94e;
       border-radius: 10px;
     }
@@ -266,23 +267,22 @@
     .stamp-grid {
       background: transparent;
       border: none;
-      border-top: 1px dashed #d8c96f;
-      border-bottom: 1px dashed #d8c96f;
       border-radius: 0;
       padding: 18px 0;
       margin: 18px 0;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px 12px;
+      gap: 14px 12px;
     }
 
     .stamp-card {
       min-width: 0;
       background: #ffffff;
-      padding: 12px 8px;
-      border: none;
-      border-radius: 12px;
+      padding: 14px 8px;
+      border: 1px solid #dce5f0;
+      border-radius: 16px;
       text-align: center;
+      box-shadow: 0 3px 8px rgba(36, 87, 167, 0.08);
     }
 
     .stamp-circle {
@@ -342,11 +342,23 @@
       line-height: 1.6;
     }
 
-    .stamp-status {
-      margin-top: 5px;
-      color: #999999;
-      font-size: 11px;
-    }
+
+.stamp-status {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: #FFF4BD;
+  color: #765B00;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.stamp-card.collected .stamp-status {
+  background: #e5effb;
+  color: #2457A7;
+}
 
 .stamp-notice {
   position: fixed;
@@ -413,6 +425,8 @@
       padding: 15px;
       border: 0;
       border-radius: 10px;
+      background: #1769aa;
+      color: #ffffff;
       font-size: 14px;
       font-weight: bold;
       cursor: pointer;
@@ -567,7 +581,7 @@
       width: 100%;
       max-width: 500px;
       padding: 24px;
-      background: #f5f0e6;
+      background: #ffffff;
       border-radius: 16px;
       text-align: center;
     }
@@ -578,7 +592,7 @@
       right: 14px;
       border: none;
       background: none;
-      color: #5c4b3d;
+      color: #2457a7;
       font-size: 32px;
       cursor: pointer;
     }
@@ -744,6 +758,14 @@
   font-weight: bold;
 }
 
+.stamp-building {
+  margin-top: 3px;
+  color: #8493a5;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .department-name.environment {
   color: #a8c65f;
 }
@@ -775,4 +797,14 @@
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+}
+
+
+.stamp-card.collected:nth-child(1) .stamp-circle,
+.stamp-card.collected:nth-child(2) .stamp-circle,
+.stamp-card.collected:nth-child(3) .stamp-circle,
+.stamp-card.collected:nth-child(4) .stamp-circle {
+  border: none;
+  background: #FFF4BD;
+  color: #2457A7;
 }
