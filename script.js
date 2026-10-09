@@ -343,3 +343,23 @@ if (localStorage.getItem(HOWTO_KEY) === "seen") {
 renderStamps();
 checkQR();
 updateFinishedState();
+
+
+
+// ページを再読み込み
+document.getElementById("reset-button").addEventListener("click", () => {
+  const confirmed = confirm(
+    "スタンプと景品の引き換え状況をリセットして、最初からやり直しますか？"
+  );
+
+  if (!confirmed) return;
+
+  localStorage.removeItem(STORAGE_KEY);
+
+  localStorage.removeItem(EXCHANGE_KEY);
+
+  localStorage.removeItem(HOWTO_KEY);
+
+  location.reload();
+});
+
