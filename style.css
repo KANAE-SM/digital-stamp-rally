@@ -771,3 +771,26 @@
   background: #FFF4BD;
   color: #2457A7;
 }
+
+
+
+
+
+
+.reset-button {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 28px);
+  margin: 12px auto 20px;
+  padding: 12px;
+  border: 1px solid #1769aa;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1769aa;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  touch-action: manipulation;
+  pointer-events: auto;
+}
