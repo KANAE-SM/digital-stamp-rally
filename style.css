@@ -18,7 +18,7 @@
       max-width: 390px;
       min-height: 100vh;
       margin: 0 auto;
-      padding: 28px 16px 40px;
+      padding: 16px 16px 20px;
     }
 
 .howto-screen {
@@ -188,7 +188,7 @@
 
     .hero {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 14px;
     }
 
     .hero h1 {
@@ -223,14 +223,15 @@
     }
 
     .description {
+      margin: 6px 0 10px;
       color: #666666;
-      font-size: 15px;
-      line-height: 1.8;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .progress-card {
       background: #ffffff;
-      padding: 24px 18px;
+      padding: 16px 12px;
       border: 2px solid #1769aa;
       border-radius: 18px;
       box-shadow: 0 4px 12px rgba(23, 105, 170, 0.10);
@@ -251,7 +252,7 @@
 
     .progress-track {
       height: 8px;
-      margin: 14px 0 20px;
+      margin: 10px 0 12px;
       background: #eaf4fa;
       border-radius: 10px;
       overflow: hidden;
@@ -268,17 +269,17 @@
       background: transparent;
       border: none;
       border-radius: 0;
-      padding: 18px 0;
-      margin: 18px 0;
+      padding: 8px 0;
+      margin: 8px 0;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px 12px;
+      gap: 10px;
     }
 
     .stamp-card {
       min-width: 0;
       background: #ffffff;
-      padding: 14px 8px;
+      padding: 10px 8px;
       border: 1px solid #dce5f0;
       border-radius: 16px;
       text-align: center;
@@ -289,9 +290,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 10px;
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 6px;
       border: 2px dashed #d8c96f;
       border-radius: 50%;
       color: #c4b45a;
@@ -422,7 +423,7 @@
     .scan-button {
       display: block;
       width: 100%;
-      padding: 15px;
+      padding: 12px;
       border: 0;
       border-radius: 10px;
       background: #1769aa;
