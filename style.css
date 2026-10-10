@@ -217,7 +217,7 @@
 
     .progress-card {
       background: #ffffff;
-      padding: 10px 10px;
+      padding: 10px 10px 20px;
       border: 2px solid #1769aa;
       border-radius: 18px;
       box-shadow: 0 4px 12px rgba(23, 105, 170, 0.10);
@@ -385,7 +385,8 @@
     .scan-button {
       display: block;
       width: 100%;
-      padding: 10px;
+      margin-top: 24px;
+      padding: 12px;
       border: 0;
       border-radius: 10px;
       background: #1769aa;
