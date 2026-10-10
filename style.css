@@ -303,6 +303,11 @@
   background: #eaf4fa;
 }
 
+.stamp-card.collected .stamp-status {
+  background: #E5EFFB;
+  color: #2457A7;
+}
+
     .stamp-name {
       font-size: 12px;
       font-weight: bold;
