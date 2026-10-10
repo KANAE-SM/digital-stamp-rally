@@ -27,20 +27,22 @@
   z-index: 3000;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 20px;
   background: #f4f9fc;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .howto-content {
   width: 100%;
   max-width: 390px;
-  max-height: 100%;
-  overflow-y: hidden;
+  margin: auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  flex-shrink: 0;
 }
 
 .howto-content h1 {
