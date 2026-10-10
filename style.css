@@ -507,8 +507,8 @@
       padding: 13px;
       border: none;
       border-radius: 999px;
-      background: #eaf4fa;
-      color: #1769aa;
+      background: #1769aa;
+      color: #eaf4fa;
       font-size: 14px;
       font-weight: bold;
       cursor: pointer;
@@ -601,6 +601,11 @@
   color: #333333;
   font-size: 13px;
   line-height: 1.7;
+}
+
+#exchange .complete-button.processing {
+  background: #dceaf3;
+  color: #7d9caf;
 }
 
 .reward-text strong {

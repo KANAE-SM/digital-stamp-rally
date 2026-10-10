@@ -308,7 +308,8 @@ function completeExchange() {
   localStorage.setItem(EXCHANGE_KEY, "completed");
 
   button.disabled = true;
-  button.textContent = "引き替え処理...";
+  button.textContent = "引き替え処理中...";
+  button.classList.add("processing");
 
   stamp.classList.remove("stamp-pop");
 
