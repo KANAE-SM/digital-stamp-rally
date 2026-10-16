@@ -7,7 +7,7 @@
     body {
       margin: 0;
       background: #f4f9fc;
-      color: #333333;
+      color: #1769aa;
       font-family: "Zen Maru Gothic", sans-serif;
       overflow-x: hidden;
       overflow-y: auto;
@@ -73,7 +73,7 @@
 
 .howto-english {
   margin: 8px 0 24px;
-  color: #777777;
+  color: #1769aa;
   font-size: 10px;
   letter-spacing: 1.5px;
   line-height: 1.6;
@@ -230,12 +230,12 @@
       justify-content: space-between;
       align-items: center;
       color: #1769aa;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
     }
 
     .progress-heading span:last-child {
-      color: #333333;
+      color: #1769aa;
     }
 
     .progress-track {
