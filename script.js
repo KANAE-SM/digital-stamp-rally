@@ -1,3 +1,40 @@
+    // ========================================
+// SNSアプリ内ブラウザからのアクセスを制限
+// ========================================
+
+const userAgent = navigator.userAgent;
+
+const isInAppBrowser =
+  /Line|Instagram|FBAN|FBAV|FB_IAB|Messenger/i.test(userAgent);
+
+if (isInAppBrowser) {
+  alert(
+    "このスタンプラリーはSafariまたはChromeでご利用ください。\n\n" +
+    "LINE・Instagramなどのアプリ内ブラウザではご利用いただけません。"
+  );
+
+  document.body.innerHTML = `
+    <div style="
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      box-sizing: border-box;
+    ">
+      <div>
+        <h2>Safari / Chromeで<br>開いてください</h2>
+        <p>
+          LINEやInstagramなどの<br>
+          アプリ内ブラウザでは<br>
+          スタンプラリーをご利用いただけません。
+        </p>
+      </div>
+    </div>
+  `;
+}
+
     // 学科の情報
     const departments = [
       { id: "environment", name: "環境・建築", sub: "デザイン学科", building: "5号館" },
