@@ -1,4 +1,4 @@
-    // ========================================
+// ========================================
 // SNSアプリ内ブラウザからのアクセスを制限
 // ========================================
 
@@ -6,6 +6,9 @@ const userAgent = navigator.userAgent;
 
 const isInAppBrowser =
   /Line|Instagram|FBAN|FBAV|FB_IAB|Messenger/i.test(userAgent);
+
+console.log("UserAgent:", navigator.userAgent);
+console.log("アプリ内ブラウザ判定:", isInAppBrowser);
 
 if (isInAppBrowser) {
   alert(
@@ -369,34 +372,35 @@ function closeExchangeComplete() {
   updateFinishedState();
 }
 
-const howtoStartButton = document.getElementById("howto-start-button");
+if (!isInAppBrowser) {
 
-if (localStorage.getItem(HOWTO_KEY) === "seen") {
-  howtoStartButton.textContent = "つづきから";
-} else {
-  howtoStartButton.textContent = "START"
+  const howtoStartButton = document.getElementById("howto-start-button");
+
+  if (localStorage.getItem(HOWTO_KEY) === "seen") {
+    howtoStartButton.textContent = "つづきから";
+  } else {
+    howtoStartButton.textContent = "START";
+  }
+
+  renderStamps();
+  checkQR();
+  updateFinishedState();
+
+  // 確認用リセットボタン
+  const resetButton = document.getElementById("reset-button");
+
+  if (resetButton) {
+    resetButton.addEventListener("click", function () {
+      if (!window.confirm("スタンプと引き換え状況をリセットしますか？")) {
+        return;
+      }
+
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(EXCHANGE_KEY);
+      localStorage.removeItem(HOWTO_KEY);
+
+      window.location.reload();
+    });
+  }
+
 }
-
-renderStamps();
-checkQR();
-updateFinishedState();
-
-
-
-// ページを再読み込み
-const resetButton = document.getElementById("reset-button");
-
-if (resetButton) {
-  resetButton.addEventListener("click", function () {
-    if (!window.confirm("スタンプと引き換え状況をリセットしますか？")) {
-      return;
-    }
-
-    localStorage.removeItem(STORAGE_KEY);
-    localStorage.removeItem(EXCHANGE_KEY);
-    localStorage.removeItem(HOWTO_KEY);
-
-    window.location.reload();
-  });
-}
-
