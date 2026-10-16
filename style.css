@@ -573,13 +573,6 @@
       margin: 20px auto;
     }
 
-    .exchange-label {
-      color: #1769aa;
-      font-size: 10px;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-    }
-
 .exchange-ticket {
   position: relative;
   min-height: 150px;
@@ -684,7 +677,7 @@
 
     .finished-message {
       margin: 20px 0 0;
-      color: #85735f;
+      color: #1769aa;
       font-size: 12px;
       line-height: 1.8;
       text-align: center;

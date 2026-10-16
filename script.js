@@ -347,7 +347,6 @@ updateFinishedState();
 
 
 // ページを再読み込み
-
 const resetButton = document.getElementById("reset-button");
 
 if (resetButton) {
