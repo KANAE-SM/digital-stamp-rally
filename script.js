@@ -24,7 +24,7 @@
 
       const stampCount = stamps.length;
 
-      if (exchangeCompleted) {
+      if (exchangeComplete) {
         document.getElementById("exchange-complete").hidden = false;
       } else if (stampCount === departments.length) {
         document.getElementById("exchange").hidden = false;
@@ -255,7 +255,6 @@
           }
         );
 
-        message.textContent = "QRコードを枠内に映してください。";
       } catch (error) {
         console.error("カメラ起動エラー:", error);
         message.textContent = "";
